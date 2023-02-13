@@ -1,0 +1,184 @@
+*,
+::before,
+::after {
+  font-size: 32px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0%;
+    overflow: hidden;
+    --boarder: 25px
+}
+
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  height: 100vh;
+  }
+
+
+.modal {
+  display:none;
+  grid-area: 4 / 3 / 9 / 11;  
+  position: fixed; 
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000066;
+}
+.modal-content {
+  rotate: -5deg;
+  background-color:rgb(255, 255, 255);
+  padding: 2rem;
+  border-radius: 5px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap:10px;
+  align-items: center;
+ box-shadow: 0 8px 24px  rgba(17,17,26,0.1), 0 16px 56px  rgba(17,17,26,0.1), 0 24px 140px 10px rgba(0, 0, 0, 0.1);
+}
+  
+#dealerDeck {
+  position:relative;
+  grid-area: 2 / 8 / 6 / 12;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  }
+#dealerHand {
+  position:relative;
+    grid-area: 2 / 2 / 6 / 8;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    }
+#playerHand {
+  position: relative;
+    grid-area: 6 / 2 / 10 / 8;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    }
+#playerBet {
+  position: relative;
+    grid-area: 6 / 8 / 10 / 12;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    }
+#playerControlsRound {
+  position: relative;
+    grid-area: 10 / 2 / 12 / 7;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    }
+#playerControlsBet {
+  position: relative;
+    grid-area: 10 / 7 / 12 / 8;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    }
+#playerPot {
+  position: relative;
+  flex-grow: 3;
+  grid-area: 10 / 8 / 12 / 12;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+} 
+
+#dealerPot {
+  position: absolute;
+  top: -10rem;
+  left: 50%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.token {
+  font-size: 50px;
+  text-shadow: 5px 5px 5px #0000002f;
+  position: absolute;
+  left:calc(var(--offsetX));
+  top:calc(var(--offsetY));
+  rotate:calc(var(--rotate));
+}
+
+
+.temp{
+  position: relative;
+}
+
+.card {
+  /* position: relative; */
+  /* font-size: 60px; */
+  background-color: rgba(255, 255, 255, 0);
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  
+}
+.card .front {
+  display: none;
+  width: 100px;
+  border-radius: 5px;
+}
+.card .back {
+  display: block;
+  width: 100px;
+  border-radius: 5px;
+}
+.flipped .front{
+  display: block;
+}
+.flipped .back{
+  display: none;
+
+}
+
+.stacked {
+  position: absolute;  
+  left:calc(var(--offsetX));
+  top:calc(var(--offsetY));
+  rotate:calc(var(--rotate));
+}
+
+
+button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  margin: 10px;
+  min-width: 3rem;
+  border-radius: 6px;
+  color: #3D3D3D;
+  background: #f0f0f0;
+  border: none;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+button:hover{
+  background: #e2e2e2;
+}
+
+button:active {
+  box-shadow: 0px 0.5px 1px 1px rgba(0, 0, 0, 0.1);
+}

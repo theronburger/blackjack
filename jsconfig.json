@@ -1,8 +1,13 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
+    "compilerOptions": {
+      "baseUrl": "index.html",
+      "paths": {
+        "@/*": ["./*"]
+      }
+    },
+    "typeAcquisition": {
+        "include": [
+            "jquery"
+        ]
     }
-  }
 }

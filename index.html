@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Blackjack</title>
+    </head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <body>
+        <div class="table">
+            <div class="modal">
+                <div class="modal-content">
+                    <p id="modalText"></p> 
+                    <button id="btnNewGame" >New Game</button>
+                </div>  
+            </div>
+            <div id="dealerDeck"></div>
+            <div id="dealerPot"></div>
+            <div id="dealerHand"></div>
+            <div id="playerHand"></div>
+            <div id="playerBet"></div>
+            <div id="playerControlsRound">
+                <button id="btnDeal" >Deal</button>
+                <button id="btnHit" >Hit</button>
+                <button id="btnStay" >Stay</button>
+            </div>
+            <div id="playerControlsBet">
+                <button id="btnBetAdd">+💰</button>
+                <button id="btnBetSubtract">-💰</button>
+            </div>
+            <div id="playerPot"></div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="src/lib/jquery-parent-to-animate.js"></script>
+        <script src="src/lib/shuffle.js"></script>
+        <script src="src/lib/uuid.js"></script>
+        <script src="src/constants.js"></script>        
+        <script src="src/classPrototypes.js"></script>
+        <script src="src/tokens.js"></script>
+        <script src="src/cards.js"></script>
+        <script src="src/model.js"></script>
+        <script src="src/machine.js"></script>
+        <script src="src/app.js"></script>
+    </body> 
+</html>

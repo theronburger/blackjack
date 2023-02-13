@@ -1,38 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CodeWorks into Exam
 
-## Getting Started
+JQuery & commonjs Blackjack app
 
-First, run the development server:
+## Focus
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+clean code, not necessarily on the css...
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   Game run from state machine
+-   Generic item manager used for tokens and cards
+-   Error handling with understandable warnings
+-   Well documented with comments and jsDocs
+-   Typechecking via Typescript using inference from jsDocs (in vs code)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Architecture
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+The game state is managed by a small state machine following loosely after xState.
+States are defined as objects with events. Events can have a target as well as conditions and actions.
+If an event has conditions, these are evaluated first.
+If the conditions are met, the action functions are run.
+Finally if there is a valid transition, the current state is changed.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The state machine model is defined in model.js and initialized in app.js
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Tokens(chips) and cards are both treated as items and managed by classes extended from a generic item manager class Collection.
+The collections manage item ownership based on an agent model defined externally.
 
-## Learn More
+The tokens and cards agent models are defined in constants and initialized in app.js
 
-To learn more about Next.js, take a look at the following resources:
+UI buttons are bound to state machine actions in app.js
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Things to improve
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+-   CSS sadness
+-   Import. Not sure how to properly do imports for commonjs with CORS
+-   Checking game state next to the state machine with a interval loop is not elegant
+-   Animation jump when transferring items
 
-## Deploy on Vercel
+## Credits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Emoji playing cards assets from [Ghiffari Haris](https://www.behance.net/gallery/122032769/Emoji-Playing-Cards?tracking_source=search_projects%7Cemoji+playing+cards)
