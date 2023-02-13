@@ -262,7 +262,7 @@ const model = {
 			$("#modalText").html(
 				`Bam, you won ${cards.tally("player")} to ${cards.tally(
 					"dealer"
-				)} and win ${tokens.balance("bet")}💰`
+				)}`
 			);
 			setTimeout(() => {
 				$(".modal").css("display", "flex");
